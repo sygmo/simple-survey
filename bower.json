@@ -1,0 +1,21 @@
+{
+  "name": "simple-survey",
+  "homepage": "https://github.com/sygmo/simple-survey",
+  "authors": [
+    "sygmo <sydney.mercier91@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1"
+  }
+}
