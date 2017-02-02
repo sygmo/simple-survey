@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var User = mongoose.model("User");
 
 module.exports = function(){
-	console.log("users Controller loaded up");
+	console.log("Server-side Controller loaded up");
 	return {
 		create: function(req, res){
 			console.log(req.body);
@@ -29,7 +29,7 @@ module.exports = function(){
 					// err.data = "failed";
 					// res.json(data);
 					res.json({data: {errors: {login: {message: "Invalid Credentials"}}}});
-				} else if(data && data.validPassword(req.body.password)){
+				} else if(data){
 					console.log("inside else if");
 					console.log(data);
 					res.json({_id: data._id});

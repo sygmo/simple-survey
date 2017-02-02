@@ -1,4 +1,4 @@
-myApp.controller('usersController', ['userFactory', function(userFactory){
+myApp.controller('usersController', ['userFactory', '$location', function (userFactory, $location){
 	console.log("users controller loaded");
 
 	if(userFactory.loggedUser._id){
@@ -11,10 +11,10 @@ myApp.controller('usersController', ['userFactory', function(userFactory){
 	this.register = function(){
 		console.log(self.regUser);
 		userFactory.register(self.regUser, function(data){
-			// console.log("first callback in UC.register");
+			console.log("first callback in UC.register");
 			// console.log(data);
 		}, function(error){
-			// console.log("second callback in UC.register");
+			console.log("second callback in UC.register");
 			// console.log(error);
 			self.validationErrors = error.data.errors;
 			console.log(this.validationErrors);
@@ -24,11 +24,12 @@ myApp.controller('usersController', ['userFactory', function(userFactory){
 		console.log(self.logUser);
 		userFactory.login(self.logUser, function(data){
 			console.log("first callback, everything is good");
-			console.log(data);
+			//console.log(data);
 			userFactory.setLogin(data);
+			$location.url('/dashboard');
 		}, function(error){
 			console.log("second callback");
-			console.log(error);
+			//console.log(error);
 			self.validationErrors = error.data.data.errors;
 		})
 	}

@@ -1,7 +1,7 @@
 <div ng-controller="usersController as UC">
 	<fieldset>
 		<legend>Login</legend>
-		<form ng-submit="/dashboard">
+		<form ng-submit="UC.login()">
 			<div ng-if="UC.validationErrors.login">
 				{{ UC.validationErrors.login.message }}
 			</div>
@@ -9,6 +9,18 @@
 				<input type="text" ng-model="UC.logUser.username" />
 			</label>
 			<input type="submit" value="Login" />
+		</form>
+	</fieldset>
+	<fieldset>
+		<legend>Register</legend>
+		<form ng-submit="UC.register()">
+			<div ng-if="UC.validationErrors.username">
+				{{ UC.validationErrors.username.message }}
+			</div>
+			<label>Your Name
+				<input type="text" ng-model="UC.regUser.username" />
+			</label>
+			<input type="submit" value="Register" />
 		</form>
 	</fieldset>
 </div>
