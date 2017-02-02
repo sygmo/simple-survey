@@ -6,3 +6,4 @@ var mongoose = require("mongoose"),
 mongoose.connect(db);
 
 require("./../models/user.js");
+require("./../models/poll.js");

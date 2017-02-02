@@ -1,0 +1,28 @@
+<div ng-controller="createController as CC">
+	<a href="#!/dashboard">Cancel</a>
+	<!-- <h3>Enter fields for a new poll:</h3> -->
+	<fieldset>
+		<legend>Enter fields for new poll:</legend>
+		<form ng-submit="CC.create()">
+			<div ng-if="CC.validationErrors.create">
+				{{ CC.validationErrors.create.message }}
+			</div>
+			<label>Question
+				<input type="text" ng-model="CC.poll.question" />
+			</label>
+			<label>Option 1
+				<input type="text" ng-model="CC.poll.option1" />
+			</label>
+			<label>Option 2
+				<input type="text" ng-model="CC.poll.option2" />
+			</label>
+			<label>Option 3
+				<input type="text" ng-model="CC.poll.option3" />
+			</label>
+			<label>Option 4
+				<input type="text" ng-model="CC.poll.option4" />
+			</label>
+			<input type="submit" value="Create Poll" />
+		</form>
+	</fieldset>
+</div>

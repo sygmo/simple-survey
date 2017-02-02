@@ -18,3 +18,16 @@ myApp.factory('userFactory', function($http){
 
 	return factory;
 })
+
+
+myApp.factory('createFactory', function($http){
+	console.log("createFactory loaded up");
+	var factory = {};
+
+	factory.create = function(poll, callback, errorCallback){
+		console.log(poll);
+		$http.post('/poll', poll).then(callback, errorCallback);
+	}
+
+	return factory;
+})

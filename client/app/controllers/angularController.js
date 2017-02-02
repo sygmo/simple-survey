@@ -34,3 +34,22 @@ myApp.controller('usersController', ['userFactory', '$location', function (userF
 		})
 	}
 }])
+
+myApp.controller('createController', ['createFactory', '$location', function (createFactory, $location){
+	console.log("create controller loaded");
+
+	var self = this;
+	this.validationErrors;
+	this.create = function(){
+		console.log(self.poll);
+		createFactory.create(self.poll, function(data){
+			console.log("first callback in CC.create");
+			$location.url('/dashboard');
+		}, function(error){
+			console.log("second callback in CC.create");
+			// console.log(error);
+			self.validationErrors = error.data.errors;
+			console.log(this.validationErrors);
+		})
+	}
+}])
