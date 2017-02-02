@@ -8,17 +8,17 @@ myApp.config(function ($routeProvider) {
 		})
 		.when('/dashboard', {
 			templateUrl: 'partials/dashboard.html',
-			controller: 'dashboardController',
-			controllerAs: 'dc'
+			controller: 'pollsController',
+			controllerAs: 'pc'
 		})
 		.when('/poll', {
 			templateUrl: 'partials/new.html',
-			controller: 'pollController',
+			controller: 'pollsController',
 			controllerAs: 'pc'
 		})
 		.when('/create', {
 			templateUrl: 'partials/create.html',
-			controller: 'createController',
-			controllerAs: 'cc'
+			controller: 'pollsController',
+			controllerAs: 'pc'
 		})
 })

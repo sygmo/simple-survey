@@ -4,6 +4,11 @@ var Poll = mongoose.model("Poll");
 module.exports = function(){
 	console.log("Server-side Controller loaded up");
 	return {
+		index: function(req, res){
+			Poll.find({}, function (err, results){
+				res.json(results);
+			})
+		},
 		create: function(req, res){
 			console.log(req.body);
 			var newPoll = new Poll(req.body);

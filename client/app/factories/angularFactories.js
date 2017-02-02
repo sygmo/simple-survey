@@ -1,4 +1,4 @@
-myApp.factory('userFactory', function($http){
+myApp.factory('userFactory', function ($http){
 	console.log("userFactory loaded up");
 	var factory = {};
 
@@ -20,13 +20,20 @@ myApp.factory('userFactory', function($http){
 })
 
 
-myApp.factory('createFactory', function($http){
-	console.log("createFactory loaded up");
+myApp.factory('pollFactory', function ($http){
+	console.log("pollFactory loaded up");
 	var factory = {};
+
+	factory.getPolls = function (callback){
+		$http.get('/polls').then(function (response){
+			polls = response.data;
+			callback(polls);
+		});
+	}
 
 	factory.create = function(poll, callback, errorCallback){
 		console.log(poll);
-		$http.post('/poll', poll).then(callback, errorCallback);
+		$http.post('/polls', poll).then(callback, errorCallback);
 	}
 
 	return factory;

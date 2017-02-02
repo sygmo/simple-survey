@@ -5,7 +5,8 @@ module.exports = function(app){
 	console.log("routes imported");
 	app.post('/users', users.create);
 	app.post('/login', users.login);
-	app.post('/poll', polls.create);
+	app.post('/polls', polls.create);
+	app.get('/polls', polls.index);
 }
 
 console.log("Routes loaded");

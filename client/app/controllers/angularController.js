@@ -35,14 +35,19 @@ myApp.controller('usersController', ['userFactory', '$location', function (userF
 	}
 }])
 
-myApp.controller('createController', ['createFactory', '$location', function (createFactory, $location){
-	console.log("create controller loaded");
+myApp.controller('pollsController', ['pollFactory', '$location', function (pollFactory, $location){
+	console.log("polls controller loaded");
 
 	var self = this;
+	var setPolls = function (polls){
+		self.polls = polls;
+	}
+	pollFactory.getPolls(setPolls);
+
 	this.validationErrors;
 	this.create = function(){
 		console.log(self.poll);
-		createFactory.create(self.poll, function(data){
+		pollFactory.create(self.poll, function(data){
 			console.log("first callback in CC.create");
 			$location.url('/dashboard');
 		}, function(error){
