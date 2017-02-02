@@ -1,6 +1,8 @@
 <a href="#!/create">Create a New Poll</a>
 
 <h3>Current Polls:</h3>
+<input placeholder="Search" type="text" class="validate" ng-model="search">
+
 <table>
 	<thead>
 	<tr>
@@ -11,9 +13,9 @@
 	</tr>	
 	</thead>
 	<tbody>
-	<tr ng-repeat="poll in pc.polls">
+	<tr ng-repeat="poll in pc.polls | filter:search">
 		<td>TBD</td>
-		<td><a href="">{{ poll.question }}</a></td>
+		<td><a href="#!/view/{{poll._id}}">{{ poll.question }}</a></td>
 		<td>Date</td>
 		<td><a href="">Delete</a></td>
 	</tr>

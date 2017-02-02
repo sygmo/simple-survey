@@ -7,6 +7,7 @@ module.exports = function(app){
 	app.post('/login', users.login);
 	app.post('/polls', polls.create);
 	app.get('/polls', polls.index);
+	app.get('/show', polls.show);
 }
 
 console.log("Routes loaded");

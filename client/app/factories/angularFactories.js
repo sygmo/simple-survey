@@ -31,6 +31,12 @@ myApp.factory('pollFactory', function ($http){
 		});
 	}
 
+	factory.showPoll = function (id, callback){
+		$http.get('/show').then(function (response){
+			callback(response.data);
+		});
+	}
+
 	factory.create = function(poll, callback, errorCallback){
 		console.log(poll);
 		$http.post('/polls', poll).then(callback, errorCallback);

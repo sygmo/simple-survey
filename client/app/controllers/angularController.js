@@ -35,7 +35,7 @@ myApp.controller('usersController', ['userFactory', '$location', function (userF
 	}
 }])
 
-myApp.controller('pollsController', ['pollFactory', '$location', function (pollFactory, $location){
+myApp.controller('pollsController', ['pollFactory', '$location', '$routeParams', function (pollFactory, $location, $routeParams){
 	console.log("polls controller loaded");
 
 	var self = this;
@@ -55,6 +55,11 @@ myApp.controller('pollsController', ['pollFactory', '$location', function (pollF
 			// console.log(error);
 			self.validationErrors = error.data.errors;
 			console.log(this.validationErrors);
+		})
+	}
+	this.showPoll = function(){
+		pollFactory.showPoll($routeParams.id, function (poll){
+			self.poll = poll;
 		})
 	}
 }])

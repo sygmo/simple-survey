@@ -11,13 +11,13 @@ myApp.config(function ($routeProvider) {
 			controller: 'pollsController',
 			controllerAs: 'pc'
 		})
-		.when('/poll', {
-			templateUrl: 'partials/new.html',
+		.when('/create', {
+			templateUrl: 'partials/create.html',
 			controller: 'pollsController',
 			controllerAs: 'pc'
 		})
-		.when('/create', {
-			templateUrl: 'partials/create.html',
+		.when('/view/:id', {
+			templateUrl: 'partials/view.html',
 			controller: 'pollsController',
 			controllerAs: 'pc'
 		})
