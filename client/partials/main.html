@@ -1,0 +1,14 @@
+<div ng-controller="usersController as UC">
+	<fieldset>
+		<legend>Login</legend>
+		<form ng-submit="/dashboard">
+			<div ng-if="UC.validationErrors.login">
+				{{ UC.validationErrors.login.message }}
+			</div>
+			<label>Your Name:
+				<input type="text" ng-model="UC.logUser.username" />
+			</label>
+			<input type="submit" value="Login" />
+		</form>
+	</fieldset>
+</div>

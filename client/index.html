@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Survey</title>
+	<script src="angular/angular.js"></script>
+	<script src="angular-route/angular-route.min.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/controllers/angularController.js"></script>
+	<script src="app/factories/angularFactories.js"></script>
+</head>
+<body ng-controller="usersController as UC">
+	<h1>Simple Survey App</h1>
+	<!-- <a href="#!/main">Look at my friends!</a> -->
+	<a href="#!/dashboard">Add a friend</a>
+	<div ng-view=''></div>
+</body>
+</html>
