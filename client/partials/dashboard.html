@@ -17,7 +17,7 @@
 		<td>TBD</td>
 		<td><a href="#!/view/{{poll._id}}">{{ poll.question }}</a></td>
 		<td>{{ poll.createdAt }}</td>
-		<td><a href="">Delete</a></td>
+		<td><a href="#!/dashboard" ng-click="pc.delete(poll._id)">Delete</a></td>
 	</tr>
 	</tbody>
 </table>

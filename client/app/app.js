@@ -21,4 +21,9 @@ myApp.config(function ($routeProvider) {
 			controller: 'pollsController',
 			controllerAs: 'pc'
 		})
+		.when('/dashboard/:id', {
+			templateUrl: 'partials/dashboard.html',
+			controller: 'pollsController',
+			controllerAs: 'pc'
+		})
 })

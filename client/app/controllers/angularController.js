@@ -58,8 +58,13 @@ myApp.controller('pollsController', ['pollFactory', '$location', '$routeParams',
 		})
 	}
 	this.showPoll = function(){
-		pollFactory.showPoll($routeParams.id, function (poll){
+		pollFactory.getPoll($routeParams.id, function (poll){
 			self.poll = poll;
 		})
+	}
+	this.delete = function(id){
+		pollFactory.delete(id, function(){
+			pollFactory.getPolls(setPolls);
+		});
 	}
 }])

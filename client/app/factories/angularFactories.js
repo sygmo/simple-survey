@@ -27,19 +27,24 @@ myApp.factory('pollFactory', function ($http){
 	factory.getPolls = function (callback){
 		$http.get('/polls').then(function (response){
 			polls = response.data;
-			callback(polls);
+			if (typeof callback == 'function'){
+				callback(polls);
+			}
 		});
 	}
-
-	factory.showPoll = function (id, callback){
-		$http.get('/show').then(function (response){
+	factory.getPoll = function(id, callback){
+		$http.get(`/polls/${id}`).then(function (response){
 			callback(response.data);
 		});
 	}
-
 	factory.create = function(poll, callback, errorCallback){
 		console.log(poll);
 		$http.post('/polls', poll).then(callback, errorCallback);
+	}
+	factory.delete = function(id, callback){
+		$http.delete(`/polls/${id}`).then(function (response){
+			factory.getPolls(callback);
+		})
 	}
 
 	return factory;

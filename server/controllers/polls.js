@@ -34,6 +34,11 @@ module.exports = function(){
 					res.json(data);
 				}
 			})
+		},
+		delete: function(req, res){
+			Poll.remove({_id: req.params.id}, function (err){
+				res.json("successfully deleted poll");
+			})
 		}
 	}
 }();
