@@ -16,7 +16,7 @@
 	<tr ng-repeat="poll in pc.polls | filter:search">
 		<td>TBD</td>
 		<td><a href="#!/view/{{poll._id}}">{{ poll.question }}</a></td>
-		<td>Date</td>
+		<td>{{ poll.createdAt }}</td>
 		<td><a href="">Delete</a></td>
 	</tr>
 	</tbody>
